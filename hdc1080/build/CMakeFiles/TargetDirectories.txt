@@ -1,0 +1,3 @@
+/home/pi4/hardware/mdd/hdc1080/build/CMakeFiles/rebuild_cache.dir
+/home/pi4/hardware/mdd/hdc1080/build/CMakeFiles/edit_cache.dir
+/home/pi4/hardware/mdd/hdc1080/build/CMakeFiles/hdc1080.dir
