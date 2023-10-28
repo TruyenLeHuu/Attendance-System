@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/main_code.dir/src/HDC1080.cpp.o CMakeFiles/main_code.dir/src/MFRC522.cpp.o CMakeFiles/main_code.dir/src/main.cpp.o -o main_code  -lwiringPi -lbcm2835 -lcurl 

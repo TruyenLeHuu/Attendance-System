@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi4/Truyen/main_code/src/HDC1080.h
+fcntl.h
+-
+unistd.h
+-
+thread
+-
+chrono
+-
+sys/ioctl.h
+-
+linux/i2c-dev.h
+-
+
+/home/pi4/Truyen/main_code/src/MFRC522.h
+stdint.h
+-
+stdio.h
+-
+string
+-
+
+/home/pi4/Truyen/main_code/src/main.cpp
+iostream
+-
+curl/curl.h
+-
+HDC1080.h
+/home/pi4/Truyen/main_code/src/HDC1080.h
+MFRC522.h
+/home/pi4/Truyen/main_code/src/MFRC522.h
+

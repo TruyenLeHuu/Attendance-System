@@ -1,0 +1,3 @@
+/home/pi4/Truyen/hdc1080/hdc1080_cpp/build/CMakeFiles/rebuild_cache.dir
+/home/pi4/Truyen/hdc1080/hdc1080_cpp/build/CMakeFiles/edit_cache.dir
+/home/pi4/Truyen/hdc1080/hdc1080_cpp/build/CMakeFiles/hdc1080.dir

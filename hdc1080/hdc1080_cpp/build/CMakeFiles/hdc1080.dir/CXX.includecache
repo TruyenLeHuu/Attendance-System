@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi4/Truyen/hdc1080/hdc1080_cpp/src/main.cpp
+iostream
+-
+fcntl.h
+-
+unistd.h
+-
+thread
+-
+chrono
+-
+sys/ioctl.h
+-
+linux/i2c-dev.h
+-
+
