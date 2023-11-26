@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/main.css">  
+  <link rel="icon" type="image/x-icon" href="/logo/PageLogo.png">
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="modules/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+  <title>Fire Alarm System</title>
+</head>
+
+<body id="bg">
+  <div class="taskbar">
+    <div class="logo">
+      <img src="logo/TaskbarLogo.png" alt="Logo">
+    </div>
+    <div class="sensor-values">
+      <div class="sensor-value">
+        <span class="label">Temperature:</span>
+        <span id="currentTemperature">25°C</span>
+      </div>
+      <div class="sensor-value">
+        <span class="label">Humidity:</span>
+        <span id="currentHumidity">60%</span>
+      </div>
+      <div class="sensor-value">
+        <span class="label">Smoke:</span>
+        <span id="currentSmoke">600mA</span>
+      </div>
+    </div>
+  </div>
+  <div class="image-container">
+    <img src="img/Title.png" width="600" height="auto" alt="Title Image">
+  </div>
+  <div class="chart-row">
+    <div class="chart-container">
+      <canvas id="temperatureChart"></canvas>
+    </div>
+    <div class="chart-container">
+      <canvas id="humidityChart"></canvas>
+    </div>
+  </div>
+  <div class="chart-row">
+    <div class="chart-container">
+      <canvas id="smokeChart"></canvas>
+    </div>
+    <div class="button-container">
+      <div class="row"><label id="status">Status:</label></div>
+      <button class="btn btn-primary" type="button" id="status-btn">Normal</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+
+<script src="assets/js/main.js"></script>
+</html>
