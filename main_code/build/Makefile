@@ -196,6 +196,249 @@ src/MFRC522.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/MFRC522.cpp.s
 .PHONY : src/MFRC522.cpp.s
 
+src/TArcface.o: src/TArcface.cpp.o
+
+.PHONY : src/TArcface.o
+
+# target to build an object file
+src/TArcface.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/TArcface.cpp.o
+.PHONY : src/TArcface.cpp.o
+
+src/TArcface.i: src/TArcface.cpp.i
+
+.PHONY : src/TArcface.i
+
+# target to preprocess a source file
+src/TArcface.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/TArcface.cpp.i
+.PHONY : src/TArcface.cpp.i
+
+src/TArcface.s: src/TArcface.cpp.s
+
+.PHONY : src/TArcface.s
+
+# target to generate assembly for a file
+src/TArcface.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/TArcface.cpp.s
+.PHONY : src/TArcface.cpp.s
+
+src/TBlur.o: src/TBlur.cpp.o
+
+.PHONY : src/TBlur.o
+
+# target to build an object file
+src/TBlur.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/TBlur.cpp.o
+.PHONY : src/TBlur.cpp.o
+
+src/TBlur.i: src/TBlur.cpp.i
+
+.PHONY : src/TBlur.i
+
+# target to preprocess a source file
+src/TBlur.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/TBlur.cpp.i
+.PHONY : src/TBlur.cpp.i
+
+src/TBlur.s: src/TBlur.cpp.s
+
+.PHONY : src/TBlur.s
+
+# target to generate assembly for a file
+src/TBlur.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/TBlur.cpp.s
+.PHONY : src/TBlur.cpp.s
+
+src/TLive.o: src/TLive.cpp.o
+
+.PHONY : src/TLive.o
+
+# target to build an object file
+src/TLive.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/TLive.cpp.o
+.PHONY : src/TLive.cpp.o
+
+src/TLive.i: src/TLive.cpp.i
+
+.PHONY : src/TLive.i
+
+# target to preprocess a source file
+src/TLive.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/TLive.cpp.i
+.PHONY : src/TLive.cpp.i
+
+src/TLive.s: src/TLive.cpp.s
+
+.PHONY : src/TLive.s
+
+# target to generate assembly for a file
+src/TLive.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/TLive.cpp.s
+.PHONY : src/TLive.cpp.s
+
+src/TMtCNN.o: src/TMtCNN.cpp.o
+
+.PHONY : src/TMtCNN.o
+
+# target to build an object file
+src/TMtCNN.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/TMtCNN.cpp.o
+.PHONY : src/TMtCNN.cpp.o
+
+src/TMtCNN.i: src/TMtCNN.cpp.i
+
+.PHONY : src/TMtCNN.i
+
+# target to preprocess a source file
+src/TMtCNN.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/TMtCNN.cpp.i
+.PHONY : src/TMtCNN.cpp.i
+
+src/TMtCNN.s: src/TMtCNN.cpp.s
+
+.PHONY : src/TMtCNN.s
+
+# target to generate assembly for a file
+src/TMtCNN.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/TMtCNN.cpp.s
+.PHONY : src/TMtCNN.cpp.s
+
+src/TRetina.o: src/TRetina.cpp.o
+
+.PHONY : src/TRetina.o
+
+# target to build an object file
+src/TRetina.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/TRetina.cpp.o
+.PHONY : src/TRetina.cpp.o
+
+src/TRetina.i: src/TRetina.cpp.i
+
+.PHONY : src/TRetina.i
+
+# target to preprocess a source file
+src/TRetina.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/TRetina.cpp.i
+.PHONY : src/TRetina.cpp.i
+
+src/TRetina.s: src/TRetina.cpp.s
+
+.PHONY : src/TRetina.s
+
+# target to generate assembly for a file
+src/TRetina.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/TRetina.cpp.s
+.PHONY : src/TRetina.cpp.s
+
+src/TWarp.o: src/TWarp.cpp.o
+
+.PHONY : src/TWarp.o
+
+# target to build an object file
+src/TWarp.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/TWarp.cpp.o
+.PHONY : src/TWarp.cpp.o
+
+src/TWarp.i: src/TWarp.cpp.i
+
+.PHONY : src/TWarp.i
+
+# target to preprocess a source file
+src/TWarp.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/TWarp.cpp.i
+.PHONY : src/TWarp.cpp.i
+
+src/TWarp.s: src/TWarp.cpp.s
+
+.PHONY : src/TWarp.s
+
+# target to generate assembly for a file
+src/TWarp.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/TWarp.cpp.s
+.PHONY : src/TWarp.cpp.s
+
+src/base64.o: src/base64.cpp.o
+
+.PHONY : src/base64.o
+
+# target to build an object file
+src/base64.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/base64.cpp.o
+.PHONY : src/base64.cpp.o
+
+src/base64.i: src/base64.cpp.i
+
+.PHONY : src/base64.i
+
+# target to preprocess a source file
+src/base64.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/base64.cpp.i
+.PHONY : src/base64.cpp.i
+
+src/base64.s: src/base64.cpp.s
+
+.PHONY : src/base64.s
+
+# target to generate assembly for a file
+src/base64.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/base64.cpp.s
+.PHONY : src/base64.cpp.s
+
+src/face.o: src/face.cpp.o
+
+.PHONY : src/face.o
+
+# target to build an object file
+src/face.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/face.cpp.o
+.PHONY : src/face.cpp.o
+
+src/face.i: src/face.cpp.i
+
+.PHONY : src/face.i
+
+# target to preprocess a source file
+src/face.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/face.cpp.i
+.PHONY : src/face.cpp.i
+
+src/face.s: src/face.cpp.s
+
+.PHONY : src/face.s
+
+# target to generate assembly for a file
+src/face.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/face.cpp.s
+.PHONY : src/face.cpp.s
+
+src/kmeans.o: src/kmeans.cpp.o
+
+.PHONY : src/kmeans.o
+
+# target to build an object file
+src/kmeans.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/kmeans.cpp.o
+.PHONY : src/kmeans.cpp.o
+
+src/kmeans.i: src/kmeans.cpp.i
+
+.PHONY : src/kmeans.i
+
+# target to preprocess a source file
+src/kmeans.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/kmeans.cpp.i
+.PHONY : src/kmeans.cpp.i
+
+src/kmeans.s: src/kmeans.cpp.s
+
+.PHONY : src/kmeans.s
+
+# target to generate assembly for a file
+src/kmeans.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_code.dir/build.make CMakeFiles/main_code.dir/src/kmeans.cpp.s
+.PHONY : src/kmeans.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -238,6 +481,33 @@ help:
 	@echo "... src/MFRC522.o"
 	@echo "... src/MFRC522.i"
 	@echo "... src/MFRC522.s"
+	@echo "... src/TArcface.o"
+	@echo "... src/TArcface.i"
+	@echo "... src/TArcface.s"
+	@echo "... src/TBlur.o"
+	@echo "... src/TBlur.i"
+	@echo "... src/TBlur.s"
+	@echo "... src/TLive.o"
+	@echo "... src/TLive.i"
+	@echo "... src/TLive.s"
+	@echo "... src/TMtCNN.o"
+	@echo "... src/TMtCNN.i"
+	@echo "... src/TMtCNN.s"
+	@echo "... src/TRetina.o"
+	@echo "... src/TRetina.i"
+	@echo "... src/TRetina.s"
+	@echo "... src/TWarp.o"
+	@echo "... src/TWarp.i"
+	@echo "... src/TWarp.s"
+	@echo "... src/base64.o"
+	@echo "... src/base64.i"
+	@echo "... src/base64.s"
+	@echo "... src/face.o"
+	@echo "... src/face.i"
+	@echo "... src/face.s"
+	@echo "... src/kmeans.o"
+	@echo "... src/kmeans.i"
+	@echo "... src/kmeans.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

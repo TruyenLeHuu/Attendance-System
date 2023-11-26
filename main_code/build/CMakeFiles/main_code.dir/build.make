@@ -102,9 +102,126 @@ CMakeFiles/main_code.dir/src/MFRC522.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_code.dir/src/MFRC522.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi4/Truyen/main_code/src/MFRC522.cpp -o CMakeFiles/main_code.dir/src/MFRC522.cpp.s
 
+CMakeFiles/main_code.dir/src/TArcface.cpp.o: CMakeFiles/main_code.dir/flags.make
+CMakeFiles/main_code.dir/src/TArcface.cpp.o: ../src/TArcface.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi4/Truyen/main_code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main_code.dir/src/TArcface.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_code.dir/src/TArcface.cpp.o -c /home/pi4/Truyen/main_code/src/TArcface.cpp
+
+CMakeFiles/main_code.dir/src/TArcface.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_code.dir/src/TArcface.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi4/Truyen/main_code/src/TArcface.cpp > CMakeFiles/main_code.dir/src/TArcface.cpp.i
+
+CMakeFiles/main_code.dir/src/TArcface.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_code.dir/src/TArcface.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi4/Truyen/main_code/src/TArcface.cpp -o CMakeFiles/main_code.dir/src/TArcface.cpp.s
+
+CMakeFiles/main_code.dir/src/TBlur.cpp.o: CMakeFiles/main_code.dir/flags.make
+CMakeFiles/main_code.dir/src/TBlur.cpp.o: ../src/TBlur.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi4/Truyen/main_code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main_code.dir/src/TBlur.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_code.dir/src/TBlur.cpp.o -c /home/pi4/Truyen/main_code/src/TBlur.cpp
+
+CMakeFiles/main_code.dir/src/TBlur.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_code.dir/src/TBlur.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi4/Truyen/main_code/src/TBlur.cpp > CMakeFiles/main_code.dir/src/TBlur.cpp.i
+
+CMakeFiles/main_code.dir/src/TBlur.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_code.dir/src/TBlur.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi4/Truyen/main_code/src/TBlur.cpp -o CMakeFiles/main_code.dir/src/TBlur.cpp.s
+
+CMakeFiles/main_code.dir/src/TLive.cpp.o: CMakeFiles/main_code.dir/flags.make
+CMakeFiles/main_code.dir/src/TLive.cpp.o: ../src/TLive.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi4/Truyen/main_code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main_code.dir/src/TLive.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_code.dir/src/TLive.cpp.o -c /home/pi4/Truyen/main_code/src/TLive.cpp
+
+CMakeFiles/main_code.dir/src/TLive.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_code.dir/src/TLive.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi4/Truyen/main_code/src/TLive.cpp > CMakeFiles/main_code.dir/src/TLive.cpp.i
+
+CMakeFiles/main_code.dir/src/TLive.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_code.dir/src/TLive.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi4/Truyen/main_code/src/TLive.cpp -o CMakeFiles/main_code.dir/src/TLive.cpp.s
+
+CMakeFiles/main_code.dir/src/TMtCNN.cpp.o: CMakeFiles/main_code.dir/flags.make
+CMakeFiles/main_code.dir/src/TMtCNN.cpp.o: ../src/TMtCNN.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi4/Truyen/main_code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main_code.dir/src/TMtCNN.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_code.dir/src/TMtCNN.cpp.o -c /home/pi4/Truyen/main_code/src/TMtCNN.cpp
+
+CMakeFiles/main_code.dir/src/TMtCNN.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_code.dir/src/TMtCNN.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi4/Truyen/main_code/src/TMtCNN.cpp > CMakeFiles/main_code.dir/src/TMtCNN.cpp.i
+
+CMakeFiles/main_code.dir/src/TMtCNN.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_code.dir/src/TMtCNN.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi4/Truyen/main_code/src/TMtCNN.cpp -o CMakeFiles/main_code.dir/src/TMtCNN.cpp.s
+
+CMakeFiles/main_code.dir/src/TRetina.cpp.o: CMakeFiles/main_code.dir/flags.make
+CMakeFiles/main_code.dir/src/TRetina.cpp.o: ../src/TRetina.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi4/Truyen/main_code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main_code.dir/src/TRetina.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_code.dir/src/TRetina.cpp.o -c /home/pi4/Truyen/main_code/src/TRetina.cpp
+
+CMakeFiles/main_code.dir/src/TRetina.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_code.dir/src/TRetina.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi4/Truyen/main_code/src/TRetina.cpp > CMakeFiles/main_code.dir/src/TRetina.cpp.i
+
+CMakeFiles/main_code.dir/src/TRetina.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_code.dir/src/TRetina.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi4/Truyen/main_code/src/TRetina.cpp -o CMakeFiles/main_code.dir/src/TRetina.cpp.s
+
+CMakeFiles/main_code.dir/src/TWarp.cpp.o: CMakeFiles/main_code.dir/flags.make
+CMakeFiles/main_code.dir/src/TWarp.cpp.o: ../src/TWarp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi4/Truyen/main_code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/main_code.dir/src/TWarp.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_code.dir/src/TWarp.cpp.o -c /home/pi4/Truyen/main_code/src/TWarp.cpp
+
+CMakeFiles/main_code.dir/src/TWarp.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_code.dir/src/TWarp.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi4/Truyen/main_code/src/TWarp.cpp > CMakeFiles/main_code.dir/src/TWarp.cpp.i
+
+CMakeFiles/main_code.dir/src/TWarp.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_code.dir/src/TWarp.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi4/Truyen/main_code/src/TWarp.cpp -o CMakeFiles/main_code.dir/src/TWarp.cpp.s
+
+CMakeFiles/main_code.dir/src/base64.cpp.o: CMakeFiles/main_code.dir/flags.make
+CMakeFiles/main_code.dir/src/base64.cpp.o: ../src/base64.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi4/Truyen/main_code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/main_code.dir/src/base64.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_code.dir/src/base64.cpp.o -c /home/pi4/Truyen/main_code/src/base64.cpp
+
+CMakeFiles/main_code.dir/src/base64.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_code.dir/src/base64.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi4/Truyen/main_code/src/base64.cpp > CMakeFiles/main_code.dir/src/base64.cpp.i
+
+CMakeFiles/main_code.dir/src/base64.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_code.dir/src/base64.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi4/Truyen/main_code/src/base64.cpp -o CMakeFiles/main_code.dir/src/base64.cpp.s
+
+CMakeFiles/main_code.dir/src/face.cpp.o: CMakeFiles/main_code.dir/flags.make
+CMakeFiles/main_code.dir/src/face.cpp.o: ../src/face.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi4/Truyen/main_code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/main_code.dir/src/face.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_code.dir/src/face.cpp.o -c /home/pi4/Truyen/main_code/src/face.cpp
+
+CMakeFiles/main_code.dir/src/face.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_code.dir/src/face.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi4/Truyen/main_code/src/face.cpp > CMakeFiles/main_code.dir/src/face.cpp.i
+
+CMakeFiles/main_code.dir/src/face.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_code.dir/src/face.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi4/Truyen/main_code/src/face.cpp -o CMakeFiles/main_code.dir/src/face.cpp.s
+
+CMakeFiles/main_code.dir/src/kmeans.cpp.o: CMakeFiles/main_code.dir/flags.make
+CMakeFiles/main_code.dir/src/kmeans.cpp.o: ../src/kmeans.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi4/Truyen/main_code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/main_code.dir/src/kmeans.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_code.dir/src/kmeans.cpp.o -c /home/pi4/Truyen/main_code/src/kmeans.cpp
+
+CMakeFiles/main_code.dir/src/kmeans.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_code.dir/src/kmeans.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi4/Truyen/main_code/src/kmeans.cpp > CMakeFiles/main_code.dir/src/kmeans.cpp.i
+
+CMakeFiles/main_code.dir/src/kmeans.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_code.dir/src/kmeans.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi4/Truyen/main_code/src/kmeans.cpp -o CMakeFiles/main_code.dir/src/kmeans.cpp.s
+
 CMakeFiles/main_code.dir/src/main.cpp.o: CMakeFiles/main_code.dir/flags.make
 CMakeFiles/main_code.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi4/Truyen/main_code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main_code.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi4/Truyen/main_code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/main_code.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main_code.dir/src/main.cpp.o -c /home/pi4/Truyen/main_code/src/main.cpp
 
 CMakeFiles/main_code.dir/src/main.cpp.i: cmake_force
@@ -119,6 +236,15 @@ CMakeFiles/main_code.dir/src/main.cpp.s: cmake_force
 main_code_OBJECTS = \
 "CMakeFiles/main_code.dir/src/HDC1080.cpp.o" \
 "CMakeFiles/main_code.dir/src/MFRC522.cpp.o" \
+"CMakeFiles/main_code.dir/src/TArcface.cpp.o" \
+"CMakeFiles/main_code.dir/src/TBlur.cpp.o" \
+"CMakeFiles/main_code.dir/src/TLive.cpp.o" \
+"CMakeFiles/main_code.dir/src/TMtCNN.cpp.o" \
+"CMakeFiles/main_code.dir/src/TRetina.cpp.o" \
+"CMakeFiles/main_code.dir/src/TWarp.cpp.o" \
+"CMakeFiles/main_code.dir/src/base64.cpp.o" \
+"CMakeFiles/main_code.dir/src/face.cpp.o" \
+"CMakeFiles/main_code.dir/src/kmeans.cpp.o" \
 "CMakeFiles/main_code.dir/src/main.cpp.o"
 
 # External object files for target main_code
@@ -126,10 +252,79 @@ main_code_EXTERNAL_OBJECTS =
 
 main_code: CMakeFiles/main_code.dir/src/HDC1080.cpp.o
 main_code: CMakeFiles/main_code.dir/src/MFRC522.cpp.o
+main_code: CMakeFiles/main_code.dir/src/TArcface.cpp.o
+main_code: CMakeFiles/main_code.dir/src/TBlur.cpp.o
+main_code: CMakeFiles/main_code.dir/src/TLive.cpp.o
+main_code: CMakeFiles/main_code.dir/src/TMtCNN.cpp.o
+main_code: CMakeFiles/main_code.dir/src/TRetina.cpp.o
+main_code: CMakeFiles/main_code.dir/src/TWarp.cpp.o
+main_code: CMakeFiles/main_code.dir/src/base64.cpp.o
+main_code: CMakeFiles/main_code.dir/src/face.cpp.o
+main_code: CMakeFiles/main_code.dir/src/kmeans.cpp.o
 main_code: CMakeFiles/main_code.dir/src/main.cpp.o
 main_code: CMakeFiles/main_code.dir/build.make
+main_code: /home/pi4/ncnn/build/install/lib/libncnn.a
+main_code: /usr/lib/aarch64-linux-gnu/libQt5Widgets.so.5.15.2
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_gapi.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_stitching.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_aruco.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_barcode.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_bgsegm.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_bioinspired.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_ccalib.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_dnn_objdetect.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_dnn_superres.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_dpm.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_face.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_freetype.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_fuzzy.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_hdf.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_hfs.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_img_hash.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_intensity_transform.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_line_descriptor.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_mcc.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_quality.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_rapid.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_reg.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_rgbd.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_saliency.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_stereo.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_structured_light.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_superres.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_surface_matching.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_tracking.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_videostab.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_wechat_qrcode.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_xfeatures2d.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_xobjdetect.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_xphoto.so.4.5.5
+main_code: /usr/lib/gcc/aarch64-linux-gnu/10/libgomp.so
+main_code: /usr/lib/aarch64-linux-gnu/libpthread.so
+main_code: /usr/lib/aarch64-linux-gnu/libQt5Gui.so.5.15.2
+main_code: /usr/lib/aarch64-linux-gnu/libQt5Core.so.5.15.2
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_shape.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_highgui.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_datasets.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_plot.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_text.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_ml.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_phase_unwrapping.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_optflow.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_ximgproc.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_video.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_videoio.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_imgcodecs.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_objdetect.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_calib3d.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_dnn.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_features2d.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_flann.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_photo.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_imgproc.so.4.5.5
+main_code: /usr/local/lib/aarch64-linux-gnu/libopencv_core.so.4.5.5
 main_code: CMakeFiles/main_code.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi4/Truyen/main_code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable main_code"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi4/Truyen/main_code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable main_code"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main_code.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
