@@ -64,7 +64,7 @@ class FacialRecognition {
         string Str;
         double Angle_face=0;
         bool deteced=false;
-        int Pmax;
+        int Pmax=-1;
         FaceR facer;
     public:
         
@@ -268,17 +268,22 @@ class FacialRecognition {
             ScaleX = ((float) frame.cols) / 320;
             ScaleY = ((float) frame.rows) / 240;
             FaceDetection(frame);
+            // cout << "FaceDetection" << endl;
             FaceRecognition(frame);
+            // cout << "FaceRecognition" << endl;
             facer.deteced=deteced;
             
             if(deteced){
                 facer.aligned=aligned;
+                // cout << "deteced" << endl;
                 // cerr<<facer.face_id<<"-----"<<endl;
                 if(Pmax==-1){
                     facer.face_id = "Stranger";
                     facer.face_name = "Stranger";
+                    // cout << "-1" << endl;
                 }
                 else{
+                    // cout << "!=-1 deteced" << endl;
                     facer.face_id=IDFaces[Pmax];
                     facer.face_name=NameFaces[Pmax];
                     facer.conf=score_[Pmax];
@@ -287,6 +292,7 @@ class FacialRecognition {
                 facer.Angle_face=Angle_face;
                 facer.blur=blur;
             }
+            // cout << "deteced" << endl;
             return facer;
         }
         

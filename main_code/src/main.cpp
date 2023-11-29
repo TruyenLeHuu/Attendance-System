@@ -15,6 +15,7 @@
 #include <mutex>
 #include <string>
 
+#include "face.cpp"
 #include "kmeans.cpp"
 #include "HDC1080.h"
 #include "MFRC522.h"  // Include the header file for MFRC522
@@ -43,6 +44,7 @@ void SendEnvParams(float temp, float hum){
     if(res != CURLE_OK)
       printf("curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
     curl_easy_cleanup(curl);
+    cout << endl;
   }
   curl_global_cleanup();
 }
@@ -68,6 +70,7 @@ void SendID(string id){
 }
 void *readAndSendRFID(void * );
 void *readAndSaveRFID(void * );
+void *ExtractFeature(void *);
 
 using namespace cv;
 
@@ -79,18 +82,31 @@ private:
   QPushButton *loadButton;
 
   QGridLayout *layout;
-  QTimer *imageTimer;
+  
   QTimer *envTimer;
   
   float temperature;
   float humidity;
 
+  
+
+  pthread_t threads[3];
+
   int *hdc1080;
   MFRC522 *mfrc;
-  VideoCapture cap;
+  
 public:
+  static QTimer *imageTimer;
+  static VideoCapture cap;
+  static FacialRecognition fr;
+  static FaceR facer;
+  static vector<cv::Mat> aligneds;
+  static vector<cv::Mat> fcs_chossed;
+  static bool isSaveIDDone;
+  static bool isTakeCap;
   static QLabel *imageLabel, *textLabel;
   static string currentID;
+  static Mat frame_capture;
   MyWidget(QWidget *parent = 0, int *_hdc1080 = 0, MFRC522 *_mfrc = NULL) : QWidget(parent), hdc1080(_hdc1080), mfrc(_mfrc) {
 
       mfrc->PCD_Init();
@@ -113,7 +129,7 @@ public:
 
       envTimer = new QTimer(this);
       connect(envTimer, &QTimer::timeout, this, &MyWidget::UpdateEnv);
-      envTimer->start(1000);
+      envTimer->start(36000);
   }
   void CreateWidget()
   {
@@ -160,63 +176,36 @@ public:
   }
   void GetData(){
     ReadRFID();
-    ExtractFeature();
+    // cout << "Read RFID" << endl;
+    // while (isSaveIDDone == false) { cout << "waiting" << endl;}
+    pthread_create(&threads[2], NULL, ExtractFeature, NULL); 
+    // ExtractFeature();
   }
-  void ExtractFeature(){
-    chrono::steady_clock::time_point beginTime, endTime;
-    float waitingTime = 0.0;
-
-    vector<cv::Mat> images;
-    vector<cv::Mat> fcs;
-    vector<float> feature_;
-    feature_.resize(128);
-    KMeans kmeans(5, 20, "cluster-details");
-    while (1)
-    {
-      cap >> frame_cap;
-      if (frame_cap.empty())
-        break;
-
-      cv::resize(frame_cap, frame_cap, cv::Size(), 0.5, 0.5);
-      
-      Tend = chrono::steady_clock::now();
-      f = chrono::duration_cast <chrono::milliseconds> (Tend - Tbegin).count();
-      if(f>5000) break;
-      facer=fr.get_name(frame_cap);
-      // aligneds.push_back(fr.aligned);
-      
-      if(facer.blur>=-25 && facer.Angle_face<28){
-          images.push_back(facer.aligned);
-          fcs.push_back(fr.extractFT(facer.aligned));
-      }
-    }
-  }
+  
   void ReadRFID(){
+    isSaveIDDone = false;
     QString anouncement = "Please wipes the ID card!";
     textLabel->setText(anouncement);
-
-    pthread_t threads[1];
     pthread_create(&threads[0], NULL, readAndSaveRFID, (void *)mfrc); 
   }
   void ReadAndSendRFID(){
     QString anouncement = "Please wipes the ID card!";
     textLabel->setText(anouncement);
-
-    pthread_t threads[1];
-    pthread_create(&threads[0], NULL, readAndSendRFID, (void *)mfrc); 
+    pthread_create(&threads[1], NULL, readAndSendRFID, (void *)mfrc); 
   }
   void UpdateImage() {
-      Mat frame;
-      cap >> frame; // take frame from camera
-      if (!frame.empty()) {
-          cvtColor(frame, frame, COLOR_BGR2RGB); // Turn image to RGB
-          QImage img(frame.data, frame.cols, frame.rows, frame.step, QImage::Format_RGB888); // Create QImage from frame
+    // Mat frame;
+    cap >> frame_capture; // take frame from camera
+    if (!frame_capture.empty()) {
+        cvtColor(frame_capture, frame_capture, COLOR_BGR2RGB); // Turn image to RGB
+        QImage img(frame_capture.data, frame_capture.cols, frame_capture.rows, frame_capture.step, QImage::Format_RGB888); // Create QImage from frame
 
-          // Fix size for image to suitable with label
-          QPixmap pixmap = QPixmap::fromImage(img).scaled(800, 480, Qt::KeepAspectRatio);
+        // Fix size for image to suitable with label
+        QPixmap pixmap = QPixmap::fromImage(img).scaled(800, 480, Qt::KeepAspectRatio);
 
-          imageLabel->setPixmap(pixmap); // Put image to label
-      }
+        imageLabel->setPixmap(pixmap); // Put image to label
+    }
+
   }
 
   void UpdateEnv(){
@@ -229,6 +218,90 @@ public:
 QLabel *MyWidget::imageLabel = NULL;
 QLabel *MyWidget::textLabel = NULL;
 string MyWidget::currentID = "";
+bool MyWidget::isSaveIDDone = false;
+bool MyWidget::isTakeCap = false;
+FacialRecognition MyWidget::fr;
+FaceR MyWidget::facer;
+vector<cv::Mat> MyWidget::aligneds;
+vector<cv::Mat> MyWidget::fcs_chossed;
+VideoCapture MyWidget::cap;
+QTimer *MyWidget::imageTimer;
+Mat MyWidget::frame_capture;
+
+double Distance(const cv::Mat &v1, const cv::Mat &v2){
+  double norm_sim = norm(v2-v1,NORM_L2);
+  return norm_sim;
+}
+void *ExtractFeature(void * args){
+  chrono::steady_clock::time_point beginTime, endTime;
+  float waitingTime = 0.0;
+  cout << "Start init" << endl;
+  cv::Mat frame_cap;
+  vector<cv::Mat> images;
+  vector<cv::Mat> fts;
+  vector<float> feature_;
+  vector<cv::Mat> centroids_cluster;
+  feature_.resize(128);
+  KMeans kmeans(5, 20, "cluster-details");
+
+  while (!MyWidget::isSaveIDDone)
+  {
+    /* code */
+  }
+  beginTime = chrono::steady_clock::now();
+  // MyWidget::isTakeCap = true;
+  cout << "Init success!"<< endl; 
+  while (1)
+  {
+    // MyWidget::cap >> frame_cap;
+    frame_cap = MyWidget::frame_capture.clone();
+    if (frame_cap.empty())
+    {
+      break;
+    }
+    cv::resize(frame_cap, frame_cap, cv::Size(), 0.5, 0.5);
+    endTime = chrono::steady_clock::now();
+    waitingTime = chrono::duration_cast <chrono::milliseconds> (endTime - beginTime).count();
+    if(waitingTime > 5000) break;
+    MyWidget::facer=MyWidget::fr.get_name(frame_cap);
+    // cout << "get name" << endl;
+    // aligneds.push_back(MyWidget::fr.aligned);
+    
+    if(MyWidget::facer.blur>=-25 && MyWidget::facer.Angle_face<28){
+        images.push_back(MyWidget::facer.aligned);
+        fts.push_back(MyWidget::fr.extractFT(MyWidget::facer.aligned));
+    }
+  }
+  int pointId = 1;
+  vector<Point_ft> all_points;
+  for (auto& it : fts) {
+      cout<<endl;
+      Point_ft point(pointId, it);
+      all_points.push_back(point);
+      pointId++;
+  }
+
+  centroids_cluster.clear();
+  centroids_cluster=kmeans.run(all_points);
+
+  vector<double> score_;
+  MyWidget::aligneds.clear();
+  MyWidget::fcs_chossed.clear();
+  for(int ii=0;ii<5;ii++){
+      // cerr<<"-"<<" ";
+      score_.clear();
+      for(size_t jj=0;jj<fts.size();jj++){
+          double norm=Distance(centroids_cluster[ii],fts[jj]);
+          score_.push_back(norm);
+      }
+
+      int Pmin = min_element(score_.begin(),score_.end()) - score_.begin();
+      MyWidget::aligneds.push_back(images[Pmin]);
+      MyWidget::fcs_chossed.push_back(fts[Pmin]);
+  }
+  cout << "Done!" << endl;
+  pthread_exit(NULL); 
+}
 
 void *readAndSaveRFID(void * _mfrc) 
 { 
@@ -263,6 +336,7 @@ void *readAndSaveRFID(void * _mfrc)
 
       anouncement = "";
       MyWidget::textLabel->setText(anouncement);
+      MyWidget::isSaveIDDone = true;
       break;
 
       delay(100);  // Introduce a delay of 100 milliseconds (1 second)

@@ -243,6 +243,22 @@ CMakeFiles/main_code.dir/src/face.cpp.o
  /home/pi4/Truyen/main_code/src/TRetina.h
  /home/pi4/Truyen/main_code/src/TWarp.h
  /home/pi4/Truyen/main_code/src/face.cpp
+ /home/pi4/ncnn/build/install/include/ncnn/allocator.h
+ /home/pi4/ncnn/build/install/include/ncnn/blob.h
+ /home/pi4/ncnn/build/install/include/ncnn/command.h
+ /home/pi4/ncnn/build/install/include/ncnn/cpu.h
+ /home/pi4/ncnn/build/install/include/ncnn/gpu.h
+ /home/pi4/ncnn/build/install/include/ncnn/layer.h
+ /home/pi4/ncnn/build/install/include/ncnn/mat.h
+ /home/pi4/ncnn/build/install/include/ncnn/modelbin.h
+ /home/pi4/ncnn/build/install/include/ncnn/ncnn_export.h
+ /home/pi4/ncnn/build/install/include/ncnn/net.h
+ /home/pi4/ncnn/build/install/include/ncnn/option.h
+ /home/pi4/ncnn/build/install/include/ncnn/paramdict.h
+ /home/pi4/ncnn/build/install/include/ncnn/pipeline.h
+ /home/pi4/ncnn/build/install/include/ncnn/platform.h
+ /home/pi4/ncnn/build/install/include/ncnn/simplestl.h
+ /home/pi4/ncnn/build/install/include/ncnn/vulkan_header_fix.h
  /usr/local/include/opencv4/opencv2/calib3d.hpp
  /usr/local/include/opencv4/opencv2/core.hpp
  /usr/local/include/opencv4/opencv2/core/affine.hpp
@@ -289,7 +305,6 @@ CMakeFiles/main_code.dir/src/face.cpp.o
  /usr/local/include/opencv4/opencv2/features2d.hpp
  /usr/local/include/opencv4/opencv2/flann.hpp
  /usr/local/include/opencv4/opencv2/flann/all_indices.h
- /usr/local/include/opencv4/opencv2/flann/allocator.h
  /usr/local/include/opencv4/opencv2/flann/any.h
  /usr/local/include/opencv4/opencv2/flann/autotuned_index.h
  /usr/local/include/opencv4/opencv2/flann/composite_index.h
@@ -456,7 +471,31 @@ CMakeFiles/main_code.dir/src/kmeans.cpp.o
 CMakeFiles/main_code.dir/src/main.cpp.o
  /home/pi4/Truyen/main_code/src/HDC1080.h
  /home/pi4/Truyen/main_code/src/MFRC522.h
+ /home/pi4/Truyen/main_code/src/TArcface.h
+ /home/pi4/Truyen/main_code/src/TBlur.h
+ /home/pi4/Truyen/main_code/src/TLive.h
+ /home/pi4/Truyen/main_code/src/TMtCNN.h
+ /home/pi4/Truyen/main_code/src/TRetina.h
+ /home/pi4/Truyen/main_code/src/TWarp.h
+ /home/pi4/Truyen/main_code/src/face.cpp
+ /home/pi4/Truyen/main_code/src/kmeans.cpp
  /home/pi4/Truyen/main_code/src/main.cpp
+ /home/pi4/ncnn/build/install/include/ncnn/allocator.h
+ /home/pi4/ncnn/build/install/include/ncnn/blob.h
+ /home/pi4/ncnn/build/install/include/ncnn/command.h
+ /home/pi4/ncnn/build/install/include/ncnn/cpu.h
+ /home/pi4/ncnn/build/install/include/ncnn/gpu.h
+ /home/pi4/ncnn/build/install/include/ncnn/layer.h
+ /home/pi4/ncnn/build/install/include/ncnn/mat.h
+ /home/pi4/ncnn/build/install/include/ncnn/modelbin.h
+ /home/pi4/ncnn/build/install/include/ncnn/ncnn_export.h
+ /home/pi4/ncnn/build/install/include/ncnn/net.h
+ /home/pi4/ncnn/build/install/include/ncnn/option.h
+ /home/pi4/ncnn/build/install/include/ncnn/paramdict.h
+ /home/pi4/ncnn/build/install/include/ncnn/pipeline.h
+ /home/pi4/ncnn/build/install/include/ncnn/platform.h
+ /home/pi4/ncnn/build/install/include/ncnn/simplestl.h
+ /home/pi4/ncnn/build/install/include/ncnn/vulkan_header_fix.h
  /usr/include/aarch64-linux-gnu/qt5/QtCore/QTimer
  /usr/include/aarch64-linux-gnu/qt5/QtCore/qalgorithms.h
  /usr/include/aarch64-linux-gnu/qt5/QtCore/qarraydata.h
@@ -590,6 +629,7 @@ CMakeFiles/main_code.dir/src/main.cpp.o
  /usr/local/include/opencv4/opencv2/core/base.hpp
  /usr/local/include/opencv4/opencv2/core/bufferpool.hpp
  /usr/local/include/opencv4/opencv2/core/check.hpp
+ /usr/local/include/opencv4/opencv2/core/core.hpp
  /usr/local/include/opencv4/opencv2/core/cuda.hpp
  /usr/local/include/opencv4/opencv2/core/cuda.inl.hpp
  /usr/local/include/opencv4/opencv2/core/cuda_types.hpp
@@ -628,7 +668,6 @@ CMakeFiles/main_code.dir/src/main.cpp.o
  /usr/local/include/opencv4/opencv2/features2d.hpp
  /usr/local/include/opencv4/opencv2/flann.hpp
  /usr/local/include/opencv4/opencv2/flann/all_indices.h
- /usr/local/include/opencv4/opencv2/flann/allocator.h
  /usr/local/include/opencv4/opencv2/flann/any.h
  /usr/local/include/opencv4/opencv2/flann/autotuned_index.h
  /usr/local/include/opencv4/opencv2/flann/composite_index.h
@@ -661,6 +700,7 @@ CMakeFiles/main_code.dir/src/main.cpp.o
  /usr/local/include/opencv4/opencv2/highgui.hpp
  /usr/local/include/opencv4/opencv2/imgcodecs.hpp
  /usr/local/include/opencv4/opencv2/imgproc.hpp
+ /usr/local/include/opencv4/opencv2/imgproc/imgproc.hpp
  /usr/local/include/opencv4/opencv2/imgproc/segmentation.hpp
  /usr/local/include/opencv4/opencv2/ml.hpp
  /usr/local/include/opencv4/opencv2/ml/ml.inl.hpp
