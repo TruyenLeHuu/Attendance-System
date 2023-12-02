@@ -10,6 +10,22 @@ CMakeFiles/main_code.dir/src/MFRC522.cpp.o
 CMakeFiles/main_code.dir/src/TArcface.cpp.o
  /home/pi4/Truyen/main_code/src/TArcface.cpp
  /home/pi4/Truyen/main_code/src/TArcface.h
+ /home/pi4/ncnn/build/install/include/ncnn/allocator.h
+ /home/pi4/ncnn/build/install/include/ncnn/blob.h
+ /home/pi4/ncnn/build/install/include/ncnn/command.h
+ /home/pi4/ncnn/build/install/include/ncnn/cpu.h
+ /home/pi4/ncnn/build/install/include/ncnn/gpu.h
+ /home/pi4/ncnn/build/install/include/ncnn/layer.h
+ /home/pi4/ncnn/build/install/include/ncnn/mat.h
+ /home/pi4/ncnn/build/install/include/ncnn/modelbin.h
+ /home/pi4/ncnn/build/install/include/ncnn/ncnn_export.h
+ /home/pi4/ncnn/build/install/include/ncnn/net.h
+ /home/pi4/ncnn/build/install/include/ncnn/option.h
+ /home/pi4/ncnn/build/install/include/ncnn/paramdict.h
+ /home/pi4/ncnn/build/install/include/ncnn/pipeline.h
+ /home/pi4/ncnn/build/install/include/ncnn/platform.h
+ /home/pi4/ncnn/build/install/include/ncnn/simplestl.h
+ /home/pi4/ncnn/build/install/include/ncnn/vulkan_header_fix.h
  /usr/local/include/opencv4/opencv2/core.hpp
  /usr/local/include/opencv4/opencv2/core/base.hpp
  /usr/local/include/opencv4/opencv2/core/bufferpool.hpp
@@ -86,6 +102,22 @@ CMakeFiles/main_code.dir/src/TBlur.cpp.o
 CMakeFiles/main_code.dir/src/TLive.cpp.o
  /home/pi4/Truyen/main_code/src/TLive.cpp
  /home/pi4/Truyen/main_code/src/TLive.h
+ /home/pi4/ncnn/build/install/include/ncnn/allocator.h
+ /home/pi4/ncnn/build/install/include/ncnn/blob.h
+ /home/pi4/ncnn/build/install/include/ncnn/command.h
+ /home/pi4/ncnn/build/install/include/ncnn/cpu.h
+ /home/pi4/ncnn/build/install/include/ncnn/gpu.h
+ /home/pi4/ncnn/build/install/include/ncnn/layer.h
+ /home/pi4/ncnn/build/install/include/ncnn/mat.h
+ /home/pi4/ncnn/build/install/include/ncnn/modelbin.h
+ /home/pi4/ncnn/build/install/include/ncnn/ncnn_export.h
+ /home/pi4/ncnn/build/install/include/ncnn/net.h
+ /home/pi4/ncnn/build/install/include/ncnn/option.h
+ /home/pi4/ncnn/build/install/include/ncnn/paramdict.h
+ /home/pi4/ncnn/build/install/include/ncnn/pipeline.h
+ /home/pi4/ncnn/build/install/include/ncnn/platform.h
+ /home/pi4/ncnn/build/install/include/ncnn/simplestl.h
+ /home/pi4/ncnn/build/install/include/ncnn/vulkan_header_fix.h
  /usr/local/include/opencv4/opencv2/core.hpp
  /usr/local/include/opencv4/opencv2/core/base.hpp
  /usr/local/include/opencv4/opencv2/core/bufferpool.hpp
@@ -122,6 +154,22 @@ CMakeFiles/main_code.dir/src/TMtCNN.cpp.o
  /home/pi4/Truyen/main_code/src/TMtCNN.cpp
  /home/pi4/Truyen/main_code/src/TMtCNN.h
  /home/pi4/Truyen/main_code/src/TRetina.h
+ /home/pi4/ncnn/build/install/include/ncnn/allocator.h
+ /home/pi4/ncnn/build/install/include/ncnn/blob.h
+ /home/pi4/ncnn/build/install/include/ncnn/command.h
+ /home/pi4/ncnn/build/install/include/ncnn/cpu.h
+ /home/pi4/ncnn/build/install/include/ncnn/gpu.h
+ /home/pi4/ncnn/build/install/include/ncnn/layer.h
+ /home/pi4/ncnn/build/install/include/ncnn/mat.h
+ /home/pi4/ncnn/build/install/include/ncnn/modelbin.h
+ /home/pi4/ncnn/build/install/include/ncnn/ncnn_export.h
+ /home/pi4/ncnn/build/install/include/ncnn/net.h
+ /home/pi4/ncnn/build/install/include/ncnn/option.h
+ /home/pi4/ncnn/build/install/include/ncnn/paramdict.h
+ /home/pi4/ncnn/build/install/include/ncnn/pipeline.h
+ /home/pi4/ncnn/build/install/include/ncnn/platform.h
+ /home/pi4/ncnn/build/install/include/ncnn/simplestl.h
+ /home/pi4/ncnn/build/install/include/ncnn/vulkan_header_fix.h
  /usr/local/include/opencv4/opencv2/core.hpp
  /usr/local/include/opencv4/opencv2/core/base.hpp
  /usr/local/include/opencv4/opencv2/core/bufferpool.hpp
@@ -158,6 +206,22 @@ CMakeFiles/main_code.dir/src/TMtCNN.cpp.o
 CMakeFiles/main_code.dir/src/TRetina.cpp.o
  /home/pi4/Truyen/main_code/src/TRetina.cpp
  /home/pi4/Truyen/main_code/src/TRetina.h
+ /home/pi4/ncnn/build/install/include/ncnn/allocator.h
+ /home/pi4/ncnn/build/install/include/ncnn/blob.h
+ /home/pi4/ncnn/build/install/include/ncnn/command.h
+ /home/pi4/ncnn/build/install/include/ncnn/cpu.h
+ /home/pi4/ncnn/build/install/include/ncnn/gpu.h
+ /home/pi4/ncnn/build/install/include/ncnn/layer.h
+ /home/pi4/ncnn/build/install/include/ncnn/mat.h
+ /home/pi4/ncnn/build/install/include/ncnn/modelbin.h
+ /home/pi4/ncnn/build/install/include/ncnn/ncnn_export.h
+ /home/pi4/ncnn/build/install/include/ncnn/net.h
+ /home/pi4/ncnn/build/install/include/ncnn/option.h
+ /home/pi4/ncnn/build/install/include/ncnn/paramdict.h
+ /home/pi4/ncnn/build/install/include/ncnn/pipeline.h
+ /home/pi4/ncnn/build/install/include/ncnn/platform.h
+ /home/pi4/ncnn/build/install/include/ncnn/simplestl.h
+ /home/pi4/ncnn/build/install/include/ncnn/vulkan_header_fix.h
  /usr/local/include/opencv4/opencv2/core.hpp
  /usr/local/include/opencv4/opencv2/core/base.hpp
  /usr/local/include/opencv4/opencv2/core/bufferpool.hpp
@@ -195,6 +259,22 @@ CMakeFiles/main_code.dir/src/TWarp.cpp.o
  /home/pi4/Truyen/main_code/src/TRetina.h
  /home/pi4/Truyen/main_code/src/TWarp.cpp
  /home/pi4/Truyen/main_code/src/TWarp.h
+ /home/pi4/ncnn/build/install/include/ncnn/allocator.h
+ /home/pi4/ncnn/build/install/include/ncnn/blob.h
+ /home/pi4/ncnn/build/install/include/ncnn/command.h
+ /home/pi4/ncnn/build/install/include/ncnn/cpu.h
+ /home/pi4/ncnn/build/install/include/ncnn/gpu.h
+ /home/pi4/ncnn/build/install/include/ncnn/layer.h
+ /home/pi4/ncnn/build/install/include/ncnn/mat.h
+ /home/pi4/ncnn/build/install/include/ncnn/modelbin.h
+ /home/pi4/ncnn/build/install/include/ncnn/ncnn_export.h
+ /home/pi4/ncnn/build/install/include/ncnn/net.h
+ /home/pi4/ncnn/build/install/include/ncnn/option.h
+ /home/pi4/ncnn/build/install/include/ncnn/paramdict.h
+ /home/pi4/ncnn/build/install/include/ncnn/pipeline.h
+ /home/pi4/ncnn/build/install/include/ncnn/platform.h
+ /home/pi4/ncnn/build/install/include/ncnn/simplestl.h
+ /home/pi4/ncnn/build/install/include/ncnn/vulkan_header_fix.h
  /usr/local/include/opencv4/opencv2/core.hpp
  /usr/local/include/opencv4/opencv2/core/base.hpp
  /usr/local/include/opencv4/opencv2/core/bufferpool.hpp
@@ -477,7 +557,9 @@ CMakeFiles/main_code.dir/src/main.cpp.o
  /home/pi4/Truyen/main_code/src/TMtCNN.h
  /home/pi4/Truyen/main_code/src/TRetina.h
  /home/pi4/Truyen/main_code/src/TWarp.h
+ /home/pi4/Truyen/main_code/src/base64.h
  /home/pi4/Truyen/main_code/src/face.cpp
+ /home/pi4/Truyen/main_code/src/json.hpp
  /home/pi4/Truyen/main_code/src/kmeans.cpp
  /home/pi4/Truyen/main_code/src/main.cpp
  /home/pi4/ncnn/build/install/include/ncnn/allocator.h
@@ -575,6 +657,7 @@ CMakeFiles/main_code.dir/src/main.cpp.o
  /usr/include/aarch64-linux-gnu/qt5/QtCore/qvector.h
  /usr/include/aarch64-linux-gnu/qt5/QtCore/qversiontagging.h
  /usr/include/aarch64-linux-gnu/qt5/QtGui/QImage
+ /usr/include/aarch64-linux-gnu/qt5/QtGui/QPalette
  /usr/include/aarch64-linux-gnu/qt5/QtGui/qbrush.h
  /usr/include/aarch64-linux-gnu/qt5/QtGui/qcolor.h
  /usr/include/aarch64-linux-gnu/qt5/QtGui/qcursor.h
