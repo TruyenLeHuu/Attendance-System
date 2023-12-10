@@ -25,19 +25,34 @@
 #include "HDC1080.h"
 #include "MFRC522.h" 
 
+// Attendance status
+#define RFID_ATTENDANCE 0
+#define RFID_FACE_ATTENDANCE 1
+#define RFID_DIF_FACE_ATTENDANCE 2
+
 const char ip[] = "192.168.137.1";
 const char port[] = "3001";
 
 using json = nlohmann::json;
 using namespace cv;
 
+bool isDoneLoadData = false;
+enum ButtonAction{
+  isGetData,
+  isSaveData,
+  isDone
+};
+ButtonAction buttonAction;
+
 void *ReadAndSendRFID(void * );
 void *ReadAndSaveRFID(void * );
-void *FaceAttendance(void * );
-void *ExtractFeature(void *);
+// void *FaceAttendance(void * );
+void SaveFeature();
+void ExtractFeature();
 void *LoadFeature(void *);
-void *SendData(void *);
-void *NotSendData(void *);
+void *Comfirm(void *);
+void *Refuse(void *);
+bool IsEnoughFeature(String , bool &);
 
 void delay(int ms){
   usleep(ms*1000);  // Function to introduce a delay in milliseconds
@@ -87,7 +102,7 @@ void SendID(string id){
   curl_global_cleanup();
 }
 
-void postFeature(string id,Mat pFeature){
+void PostFeature(string id,Mat pFeature){
   static int seconds_last = 99;
 	char timeString[128];
 	timeval currTime;
@@ -140,17 +155,14 @@ void postFeature(string id,Mat pFeature){
   curl_global_cleanup();
 }
 
-void PostStudentPicture(char id[50],int len, string image){
+void PostAttendanceStatus(char id[50],int len, string image, const int attendanceStatus){
   cout<<id<<endl;
-  static int seconds_last = 99;
+
   if(len>0) id[len]='\0';
-	char timeString[128];
-	timeval currTime;
-	gettimeofday(&currTime, NULL);
-	seconds_last = currTime.tv_sec;
-	strftime(timeString, 80, "%Y-%m-%d %H:%M:%S", localtime(&currTime.tv_sec));
-  char data_send[1000000];
-  strcpy(data_send, image.c_str());
+  
+  char string_image[1000000];
+
+  strcpy(string_image, image.c_str());
   CURL *curl;
   CURLcode res;
   char url[100];
@@ -160,7 +172,7 @@ void PostStudentPicture(char id[50],int len, string image){
   if(curl) {
     curl_easy_setopt(curl, CURLOPT_URL, url);
     char s2[1000000];
-    snprintf(s2,sizeof(s2), "json={\"id\": \"%s\",\"time\": \"%s\",\"img\": \"%s\"}", id, timeString, data_send);
+    snprintf(s2,sizeof(s2), "json={\"id\": \"%s\",\"img\": \"%s\",\"status\": \"%d\"}", id, string_image, attendanceStatus);
     // cerr<<s2<<endl;
     curl_easy_setopt(curl, CURLOPT_POSTFIELDS, s2);
     res = curl_easy_perform(curl);
@@ -181,6 +193,8 @@ private:
   
   QTimer *envTimer;
   QTimer *imageTimer;
+
+  QString anouncement;
 
   QGridLayout *layout;
 
@@ -224,8 +238,8 @@ public:
       connect(faceButton, &QPushButton::clicked, this, &MyWidget::SendFace);
       connect(dataButton, &QPushButton::clicked, this, &MyWidget::GetData);
       connect(loadButton, &QPushButton::clicked, this, &MyWidget::LoadData);
-      connect(confirmButton, &QPushButton::clicked, this, &MyWidget::ComfirmSendData);
-      connect(cancelButton, &QPushButton::clicked, this, &MyWidget::CancelSendData);
+      connect(confirmButton, &QPushButton::clicked, this, &MyWidget::ComfirmEvent);
+      connect(cancelButton, &QPushButton::clicked, this, &MyWidget::RefuseEvent);
 
       cap.open(0);
       
@@ -237,6 +251,10 @@ public:
       envTimer = new QTimer(this);
       connect(envTimer, &QTimer::timeout, this, &MyWidget::UpdateEnv);
       envTimer->start(36000);
+
+      LoadData();
+
+      pthread_create(&threads[0], NULL, ReadAndSaveRFID, (void *)mfrc); 
   }
   void CreateWidget()
   {
@@ -260,10 +278,10 @@ public:
     cancelButton->setPalette(palCancelButton);
 
     // Fix height for button
-    rfidButton->setFixedHeight(60);
-    faceButton->setFixedHeight(60);
-    dataButton->setFixedHeight(60);
-    loadButton->setFixedHeight(60);
+    rfidButton->setFixedHeight(0);
+    faceButton->setFixedHeight(0);
+    dataButton->setFixedHeight(0);
+    loadButton->setFixedHeight(0);
     confirmButton->setFixedHeight(0);
     cancelButton->setFixedHeight(0);
 
@@ -284,9 +302,6 @@ public:
     textLabel = new QLabel(this);
     textLabel->setAlignment(Qt::AlignHCenter);
     textLabel->setFont(QFont("Helvetica", 20));
-    
-    // auto *vbox = new QVBoxLayout();
-    // vbox->addWidget(textLabel);
 
     // Create layout grid
     layout = new QGridLayout(this);
@@ -308,21 +323,21 @@ public:
     pthread_create(&threads[0], NULL, ReadAndSendRFID, (void *)mfrc); 
   }
   void SendFace(){
-    pthread_create(&threads[1], NULL, FaceAttendance, NULL); 
+    // pthread_create(&threads[1], NULL, FaceAttendance, NULL); 
   }
   void GetData(){
     isSaveIDDone = false;
     pthread_create(&threads[2], NULL, ReadAndSaveRFID, (void *)mfrc); 
-    pthread_create(&threads[3], NULL, ExtractFeature, NULL); 
+    // pthread_create(&threads[3], NULL, ExtractFeature, NULL); 
   }
   void LoadData(){
     pthread_create(&threads[4], NULL, LoadFeature, NULL); 
   }
-  void ComfirmSendData(){
-    pthread_create(&threads[5], NULL, SendData, NULL); 
+  void ComfirmEvent(){
+    pthread_create(&threads[5], NULL, Comfirm, NULL); 
   }
-  void CancelSendData(){
-    pthread_create(&threads[6], NULL, NotSendData, NULL); 
+  void RefuseEvent(){
+    pthread_create(&threads[6], NULL, Refuse, NULL); 
   }
  
   void UpdateImage() {
@@ -443,18 +458,38 @@ string weighted_sum(vector <FaceR> facers)
     return idr;
 }
 
-void* FaceAttendance(void* args){
+void FaceAttendance(){
   vector <FaceR> facers;
   facers.clear();
+  int sumNumFaces;
   int faceNumber=0;
+  chrono::steady_clock::time_point beginTime, endTime;
+  float waitingTime = 0.0;
+  beginTime = chrono::steady_clock::now();
+  QString anouncement;
+    
   while(faceNumber < 5){
-    MyWidget::facer = MyWidget::fr.get_name(MyWidget::frameCapture);
-    if(MyWidget::facer.blur >= -25){
+    int numFaces = 0;
+    MyWidget::facer = MyWidget::fr.get_name(MyWidget::frameCapture, numFaces);
+    if(MyWidget::facer.blur >= -25 && numFaces > 0){
+      anouncement = "Facial recognizing...";
+      MyWidget::textLabel->setText(anouncement);
+      cout << numFaces << ", " << faceNumber;
       faceNumber++;
       facers.push_back(MyWidget::facer);
     }
+    endTime = chrono::steady_clock::now();
+    waitingTime = chrono::duration_cast <chrono::milliseconds> (endTime - beginTime).count();
+    if (waitingTime > 3000)
+    {
+      anouncement = "Please put your face in front camera.";
+      MyWidget::textLabel->setText(anouncement);
+    }
+    sumNumFaces += numFaces;
   }
-
+  
+  
+  
   string predictionId = weighted_sum(facers);
 
   char char_predictionId[predictionId.length()];
@@ -462,32 +497,38 @@ void* FaceAttendance(void* args){
   for(int i=0; i<predictionId.length(); i++)
     char_predictionId[i] = predictionId[i];
 
+  cvtColor(MyWidget::facer.aligned, MyWidget::facer.aligned, COLOR_BGR2RGB); 
+  
   imwrite("cam_picture.png", MyWidget::facer.aligned);
 
   string strImage = create_output_for_binary("cam_picture.png");
   auto encodedImage = base64_encode(strImage, strImage.size());
 
-  PostStudentPicture(char_predictionId, predictionId.length(),encodedImage);
+  PostAttendanceStatus(char_predictionId, predictionId.length(), encodedImage, RFID_FACE_ATTENDANCE);
   
   MyWidget::aligneds.clear();
 
   char _anouncement[50];
-  sprintf(_anouncement, "Marked attendance, welcome %s", predictionId.c_str());
-
+  if (predictionId != MyWidget::currentID)
+  {
+    sprintf(_anouncement, "Your ID %s, not match with current face", predictionId.c_str());
+  }
+  else
+  {
+    sprintf(_anouncement, "Marked attendance, welcome %s", predictionId.c_str());
   for(int i=0; i<MyWidget::fr.Persons.size(); i++)
     if (predictionId == MyWidget::fr.Persons[i].id){
       sprintf(_anouncement, "Marked attendance, welcome %s", (MyWidget::fr.Persons[i].name).c_str());
       break;
     }
-
-  QString anouncement = _anouncement;
+  }
+  anouncement = _anouncement;
   MyWidget::textLabel->setText(anouncement);
 
   delay(5000);
 
   anouncement = "";
   MyWidget::textLabel->setText(anouncement);
-  pthread_exit(NULL); 
 }
 
 static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *userp)
@@ -525,15 +566,15 @@ void* LoadFeature(void* args){
 
   json json_featureData = json::parse(featureData);
   MyWidget::fr.FolderCnt=json_featureData.size();
-
+  // cout << json_featureData << endl;
   for (int i = 0; i < MyWidget::fr.FolderCnt; i++)
   {
     Person person;
 
-    person.n = json_featureData[i]["feature"].size();
+    person.n = json_featureData[i]["facial_recognition_data"].size();
 
     name = json_featureData[i]["name"];
-    id = json_featureData[i]["id"];
+    id = json_featureData[i]["card_id"];
 
     person.name = name.c_str();
     person.id = id.c_str();
@@ -541,7 +582,7 @@ void* LoadFeature(void* args){
     for (int j = 0; j < person.n; j++)
     {
       for (int k = 0; k < 128; k++)
-        feature[k] = json_featureData[i]["feature"][j][k];
+        feature[k] = json_featureData[i]["facial_recognition_data"][j][k];
       faces.push_back(cv::Mat(feature, true));
     }
     person.fcs = faces;
@@ -565,7 +606,7 @@ void* LoadFeature(void* args){
 
   anouncement = "";
   MyWidget::textLabel->setText(anouncement);
-
+  isDoneLoadData = true;
   curl_global_cleanup();
 
   pthread_exit(NULL); 
@@ -576,7 +617,7 @@ double Distance(const cv::Mat &v1, const cv::Mat &v2){
   return norm_sim;
 }
 
-void* NotSendData(void * args){
+void* Refuse(void * args){
   for(size_t i=0; i < MyWidget::aligneds.size(); i++){
     QImage img(MyWidget::aligneds[i].data, MyWidget::aligneds[i].cols, MyWidget::aligneds[i].rows, MyWidget::aligneds[i].step, QImage::Format_RGB888); // Create QImage from frame
 
@@ -587,22 +628,42 @@ void* NotSendData(void * args){
   }
   MyWidget::confirmButton->setFixedHeight(0);
   MyWidget::cancelButton->setFixedHeight(0);
+  QString anouncement;
 
-  QString anouncement = "Canceled save data";
-  MyWidget::textLabel->setText(anouncement);
-
+  if (buttonAction == isGetData)
+  {
+    anouncement = "Canceled provide data";
+    MyWidget::textLabel->setText(anouncement);
+  }
+  else if (buttonAction == isSaveData)
+  {
+    anouncement = "Canceled save data";
+    MyWidget::textLabel->setText(anouncement);
+  }
   delay(5000);
-
+  buttonAction = isDone;
   anouncement = "";
   MyWidget::textLabel->setText(anouncement);
   pthread_exit(NULL); 
 }
 
-void* SendData(void * args){
+void* Comfirm(void * args){
+  if (buttonAction == isGetData)
+  {
+    ExtractFeature();
+  }
+  else if (buttonAction == isSaveData)
+  {
+    SaveFeature();
+  }
+  pthread_exit(NULL); 
+}
+void SaveFeature(){
+  {
     vector<cv::Mat> faces; 
     Person person;
     for(size_t i = 0; i < MyWidget::fcsChosen.size(); i++){
-      postFeature(MyWidget::currentID, MyWidget::fcsChosen[i]);
+      PostFeature(MyWidget::currentID, MyWidget::fcsChosen[i]);
       faces.push_back(MyWidget::fcsChosen[i]);
     }
     // update database local
@@ -634,19 +695,19 @@ void* SendData(void * args){
 
     MyWidget::confirmButton->setFixedHeight(0);
     MyWidget::cancelButton->setFixedHeight(0);
-
+    
     QString anouncement = "Saved data";
     MyWidget::textLabel->setText(anouncement);
-
     delay(5000);
-
-    anouncement = "";
-    MyWidget::textLabel->setText(anouncement);
-
-    pthread_exit(NULL); 
+    
+    buttonAction = isDone; 
+  }
 }
+void ExtractFeature(){
 
-void *ExtractFeature(void * args){
+  MyWidget::confirmButton->setFixedHeight(0);
+  MyWidget::cancelButton->setFixedHeight(0);
+
   chrono::steady_clock::time_point beginTime, endTime;
   float waitingTime = 0.0;
 
@@ -661,11 +722,6 @@ void *ExtractFeature(void * args){
   vector<double> score;
 
   KMeans kmeans(5, 20, "cluster-details");
-
-  while (!MyWidget::isSaveIDDone)
-  {
-    /* code */
-  }
   beginTime = chrono::steady_clock::now();
   cout << "Read id success!"<< endl; 
   while (1)
@@ -681,8 +737,8 @@ void *ExtractFeature(void * args){
     waitingTime = chrono::duration_cast <chrono::milliseconds> (endTime - beginTime).count();
 
     if(waitingTime > 5000) break;
-
-    MyWidget::facer = MyWidget::fr.get_name(frameCap);
+    int numFaces;
+    MyWidget::facer = MyWidget::fr.get_name(frameCap, numFaces);
     
     if(MyWidget::facer.blur >= -25 && MyWidget::facer.Angle_face < 28){
         images.push_back(MyWidget::facer.aligned);
@@ -717,7 +773,7 @@ void *ExtractFeature(void * args){
 
   QString anouncement = "Press Yes button to save data";
   MyWidget::textLabel->setText(anouncement);
-
+  buttonAction = isSaveData;
   MyWidget::confirmButton->setFixedHeight(60);
   MyWidget::cancelButton->setFixedHeight(60);
   
@@ -729,7 +785,6 @@ void *ExtractFeature(void * args){
 
         MyWidget::smallImageLabels[i]->setPixmap(pixmap);
   }
-  cout << "Done!" << endl;
   pthread_exit(NULL); 
 }
 
@@ -737,23 +792,19 @@ void *ReadAndSaveRFID(void * _mfrc)
 { 
   MFRC522* mfrc = (MFRC522*) _mfrc;
 
-  QString anouncement = "Please wipes the ID card!";
-  MyWidget::textLabel->setText(anouncement);
-
   chrono::steady_clock::time_point beginTime, endTime;
   float waitingTime = 0.0;
   beginTime = chrono::steady_clock::now();
+  while (!isDoneLoadData)
+  {
+    /* code */
+  }
+  QString anouncement = "Please face in front of camera and swipe the ID card";
+  MyWidget::textLabel->setText(anouncement);
 
   while (1)
     {
-      endTime = chrono::steady_clock::now();
-      waitingTime = chrono::duration_cast <chrono::milliseconds> (endTime - beginTime).count();
-      if (waitingTime > 20000) 
-      {
-        anouncement = "";
-        MyWidget::textLabel->setText(anouncement);
-        break;
-      }
+      delay(100);  // Introduce a delay of 100 milliseconds
       // Look for a card
       if(!mfrc->PICC_IsNewCardPresent()) // Check if a new card is present
       continue;  // If no new card is present, continue to the next iteration
@@ -762,8 +813,10 @@ void *ReadAndSaveRFID(void * _mfrc)
       continue;  // If reading fails, continue to the next iteration
 
       std::cout << std::endl << mfrc->PICC_TakeStringID() << std::endl;  // Print the string ID of the card
+      
       MyWidget::currentID = mfrc->PICC_TakeStringID();
-      anouncement = "Saved RFID!";
+
+      anouncement = "Receive ID!";
       
       MyWidget::textLabel->setText(anouncement);
 
@@ -771,24 +824,62 @@ void *ReadAndSaveRFID(void * _mfrc)
       float waitingTime = 0.0;
       beginTime = chrono::steady_clock::now();
 
-      while (waitingTime < 7000)
+      while (1)
       {
         if (waitingTime >= 2000)
         {
-          MyWidget::isSaveIDDone = true;
-          anouncement = "Please slowly rotate your face...";
-          MyWidget::textLabel->setText(anouncement);
+          bool isStranger;
+          if (IsEnoughFeature(MyWidget::currentID, isStranger)) 
+          {
+            anouncement = "Facial recognizing...";
+            MyWidget::textLabel->setText(anouncement);
+            FaceAttendance();
+          }
+          else
+          {
+            if (isStranger)
+            {
+              anouncement = "Hello stranger, please call manager to create profile";
+              MyWidget::textLabel->setText(anouncement);
+              delay(2000);
+            }
+            anouncement = "Not enough features for recognition, do you want to provide some for system";
+            MyWidget::textLabel->setText(anouncement);
+            buttonAction = isGetData;
+            MyWidget::confirmButton->setFixedHeight(60);
+            MyWidget::cancelButton->setFixedHeight(60);
+            while(!(buttonAction == isDone)){
+              delay(100);
+            }
+          }
+          break;
         }
         endTime = chrono::steady_clock::now();
         waitingTime = chrono::duration_cast <chrono::milliseconds> (endTime - beginTime).count();
       }
 
-      anouncement = "";
+      // anouncement = "";
+      // MyWidget::textLabel->setText(anouncement);
+
+      QString anouncement = "Please face in front of camera and swipe the ID card";
       MyWidget::textLabel->setText(anouncement);
-      break;
-      delay(100);  // Introduce a delay of 100 milliseconds (1 second)
     }
   pthread_exit(NULL); 
+}
+bool IsEnoughFeature(String currentID, bool &isStranger){
+  isStranger = 0;
+  for (int i = 0; i < MyWidget::fr.FolderCnt; i++)
+  {
+    if (currentID == MyWidget::fr.Persons[i].id)
+    {
+      if (MyWidget::fr.Persons[i].n >=5)
+        return 1;
+      else
+        return 0;
+    }
+  }
+  isStranger = 1;
+  return 0;
 }
 void *ReadAndSendRFID(void * _mfrc) 
 { 

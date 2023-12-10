@@ -155,15 +155,15 @@ class FacialRecognition {
             }
             myfile.close();
         }
-        void FaceDetection(cv::Mat frame){
+        int FaceDetection(cv::Mat frame){
             cv::Mat result_cnn;
-
             //extract
             
             cv::resize(frame, result_cnn, Size(RetinaWidth,RetinaHeight),INTER_LINEAR);
             Rtn.detect_retinaface(result_cnn,this->Faces);
             float maxArea=0;
             int maxIndex=0;
+            
             for(int i=0;i<Faces.size();i++){
                 this->Faces[i].NameIndex = -2;    //-2 -> too tiny (may be negative to signal the drawing)
                 this->Faces[i].Color     =  2;
@@ -179,6 +179,7 @@ class FacialRecognition {
                 Faces.clear();
                 Faces.push_back(FaceMaxArea);
             }
+            return Faces.size();
             // this->result_detection=result_cnn;
         }
         Mat extractFT(Mat aligned){
@@ -263,19 +264,21 @@ class FacialRecognition {
                 }
             }
         }
-        FaceR get_name(cv::Mat frame){
+        FaceR get_name(cv::Mat frame, int &numFaces){
             
             ScaleX = ((float) frame.cols) / 320;
             ScaleY = ((float) frame.rows) / 240;
-            FaceDetection(frame);
-            // cout << "FaceDetection" << endl;
+            facer.face_id = "Stranger";
+            facer.face_name = "Stranger";
+            numFaces = FaceDetection(frame);
+            if (!numFaces) return facer;
             FaceRecognition(frame);
-            // cout << "FaceRecognition" << endl;
+
             facer.deteced=deteced;
             
             if(deteced){
                 facer.aligned=aligned;
-                // cout << "deteced" << endl;
+
                 // cerr<<facer.face_id<<"-----"<<endl;
                 if(Pmax==-1){
                     facer.face_id = "Stranger";
